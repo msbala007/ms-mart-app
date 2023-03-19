@@ -1,7 +1,6 @@
 import { useSession } from "next-auth/react";
 
-const stripe = require("stripe")(
-  "sk_test_51LwNLVSI9OJZzJoCmoPhC3F6yHOTj94cKrweCeZOnCi83pz9t2SjNSQzHIlbrnO9M1WBORHnmg9xurBDGdqxbwbW00JxPWiUHl"
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY
 );
 
 async function createStripeSession(req, res) {
@@ -26,7 +25,7 @@ async function createStripeSession(req, res) {
 
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ["card"],
-    // shipping_rates: ["shr_1MdWcRSI9OJZzJoCoaoZR2P7"],
+    
     shipping_address_collection: {
       allowed_countries: ["IN", "US"],
     },
