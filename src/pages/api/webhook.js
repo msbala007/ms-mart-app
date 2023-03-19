@@ -8,15 +8,13 @@ const app = !admin.apps.length
   : admin.app();
 
 //
-const stripe = require("stripe")(
-  "sk_test_51LwNLVSI9OJZzJoCmoPhC3F6yHOTj94cKrweCeZOnCi83pz9t2SjNSQzHIlbrnO9M1WBORHnmg9xurBDGdqxbwbW00JxPWiUHl"
-);
-
-// const endPointSecret ="whsec_d77c48665ae3cb1c86e392a735546ab5e55087b0bf79e803bc3347167995a5aa";
+const stripe = require("stripe")(process.env.STRIPE_KEY) 
 
 
 
-const endpointSecret="whsec_BgEozxzuLOOSgiv4cfQlmJVzT7UsQhPi"
+
+
+const endpointSecret=process.env.SECRET
 
 
 export const config = {
