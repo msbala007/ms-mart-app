@@ -17,11 +17,8 @@ const MyCart = () => {
   useEffect(() => {
     dispatch(cartActions.totalAmount());
   }, [items]);
-  //Stipe
-  const STRIPE_PUBLIC_KEY =
-    "pk_test_51LwNLVSI9OJZzJoCs1f4ZDR0hoYM09nsTTvPvZV6ch7nWnDCQ2rHqSCZTLqSr4hqGtKHcus2WsLVwIs1cIJlhYZR00wZ2V2mjo";
-
-  const stripePromise = loadStripe(STRIPE_PUBLIC_KEY);
+  
+  const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY);
 
   const createCheckOutSesssion = async () => {
     const stripe = await stripePromise;
